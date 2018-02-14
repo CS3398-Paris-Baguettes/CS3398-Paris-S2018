@@ -12,17 +12,15 @@ public class User {
     public void setUsername(String un){
         this.username = un;
     }
+    public void setBio(String b) {
+        this.bio = b;
+    }
     public String getUsername() {
         return username;
     }
     public String getPassword(){
         return password;
     }
-
-    public void setBio(String b) {
-        this.bio = b;
-    }
-
     public String getBio() {
         return bio;
     }
