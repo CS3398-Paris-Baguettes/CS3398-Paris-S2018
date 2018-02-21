@@ -1,5 +1,3 @@
-<!-- Author: Ayesha Khan-->
-
 apply plugin: 'com.android.application'
 
 android {
