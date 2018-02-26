@@ -33,6 +33,15 @@ public class User {
     public String getBio() {
         return bio;
     }
+    
+    public static Movie[] userWatched(Movie movie, Movie[] list) {
+        int i = 0;
+        while (list[i] != null) {
+            i++;
+        }
+        list[i] = movie;
+        return list;
+    }
 
 
 }
