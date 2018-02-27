@@ -8,3 +8,7 @@ It’s movie night and everyone has their snacks and spot in front of the televi
 As for frontend development, our work is on time. We have devloped three out of four pages for our app. The login page, user profile page and sign up page GUIs have been completed. Homepage GUI development is in progress.
 
 As of now, the movies are hardcoded and stored in an array until we have a web-crawler that will populate and store movies in the database. We also have a protoype of an algorithm that returns a list of movies by their provider. The purpose of this was the attempt of displaying some movies on the homepage and to create the search fragment.
+
+The Database for storing user information is complete and needs to be implemented in the activity classes.
+
+In addition to the application files, we have some excess file commits that are not currently implemented that need to be organized appropriately.
