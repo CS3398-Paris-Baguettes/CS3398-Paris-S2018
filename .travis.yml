@@ -1,14 +1,10 @@
 language: android
-android:
-  components:
-     - tools
-     - platform-tools
-    - build-tools-26.0.2
-    - android-26
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    - addon-google_apis-google-26
-    - sys-img-armeabi-v7a-android-26
-    
-script: ./gradlew build connectedCheck
+
+before_script:
+ - chmod a+x gradlew
+
+script: ./gradlew build
+#sudo: false # faster builds
+
+#after_success:
+# - bash <(curl -s https://codecov.io/bash)
