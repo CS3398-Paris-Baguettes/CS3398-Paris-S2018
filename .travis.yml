@@ -1,7 +1,7 @@
 language: java
 
 before_script:
- - chmod a+x gradlew
+ - sudo chmod a+x gradlew
 
 script: ./gradlew build
 #sudo: false # faster builds
