@@ -1,7 +1,12 @@
 language: java
 
-script: ./gradlew
-#sudo: false # faster builds
-
-#after_success:
-# - bash <(curl -s https://codecov.io/bash)
+jdk:
+  -oraclejdk8
+  
+ #whitelist
+ branches:
+  only:
+    - Jarrod-Development
+    
+ after_success:
+ - mvn clean test jacoco:report coveralls:report
