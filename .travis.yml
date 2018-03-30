@@ -1,10 +1,10 @@
 language: java
-
 jdk:
-  - oraclejdk8
-
-before_script:
-- chmod a+x gradlew
+  - oraclejdk7
+  - openjdk7
+ 
+before_install:
+ - chmod +x gradlew
 
 script: ./gradlew build
 #sudo: false # faster builds
