@@ -1,10 +1,11 @@
 language: java
+jdk:
+  - oraclejdk7
 
-before_script:
- - chmod a+x gradlew
+sudo: required
 
-script: ./gradlew build
-#sudo: false # faster builds
+before_install:
+ - chmod +x gradlew
 
-#after_success:
-# - bash <(curl -s https://codecov.io/bash)
+script:
+  - ./gradlew clean build -i --continue
