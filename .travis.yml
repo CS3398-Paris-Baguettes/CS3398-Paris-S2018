@@ -1,11 +1,12 @@
-language: java
-jdk:
-  - oraclejdk7
+language: android
 
 sudo: required
 
-before_install:
- - chmod +x gradlew
+before_script:
+ - chmod a+x gradlew
 
-script:
-  - ./gradlew clean build -i --continue
+script: ./gradlew build
+#sudo: false # faster builds
+
+#after_success:
+# - bash <(curl -s https://codecov.io/bash)
