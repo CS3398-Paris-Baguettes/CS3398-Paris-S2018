@@ -1,6 +1,6 @@
 language: java
 
-script: ./gradlew build
+script: ./gradlew
 #sudo: false # faster builds
 
 #after_success:
