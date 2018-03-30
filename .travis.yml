@@ -1,31 +1,10 @@
-language: android
-sudo: false
+language: java
 
 before_script:
-  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
+ - chmod a+x gradlew
 
-android:
-  components:
-    # Update Android SDK Tools
-    - tools
+script: ./gradlew build
+#sudo: false # faster builds
 
-    - build-tools-25.0.1
-    - android-25
-
-    # Support library
-    - extra-android-support
-    - extra-android-m2repository
-
-jdk:
-  - oraclejdk8
-
-sudo: required
-
-before_install:
- - chmod +x gradlew
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash) -t token
+#after_success:
+# - bash <(curl -s https://codecov.io/bash)
