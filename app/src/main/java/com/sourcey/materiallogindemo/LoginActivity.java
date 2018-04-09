@@ -23,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.input_password) EditText _passwordText;
     @Bind(R.id.btn_login) Button _loginButton;
     @Bind(R.id.link_signup) TextView _signupLink;
+
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,12 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
-
+        if(!databaseHelper.checkUser(email, password))
+        {
+            onLoginFailed();
+            progressDialog.dismiss();
+            return;
+        }
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {

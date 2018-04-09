@@ -17,16 +17,16 @@ import butterknife.Bind;
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
-    //DatabaseHelper helper = new DatabaseHelper(this);
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
     @Bind(R.id.input_name) EditText _nameText;
-    @Bind(R.id.input_address) EditText _addressText;
     @Bind(R.id.input_email) EditText _emailText;
-    @Bind(R.id.input_mobile) EditText _mobileText;
     @Bind(R.id.input_password) EditText _passwordText;
     @Bind(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @Bind(R.id.btn_signup) Button _signupButton;
     @Bind(R.id.link_login) TextView _loginLink;
+
+    private User user;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,16 +70,23 @@ public class SignupActivity extends AppCompatActivity {
         progressDialog.show();
 
         String name = _nameText.getText().toString();
-        String address = _addressText.getText().toString();
         String email = _emailText.getText().toString();
-        String mobile = _mobileText.getText().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
-        // TODO: Implement your own signup logic here.
-        final User u = new User();
-        u.setUsername(name);
+        if(databaseHelper.checkUser(email))
+        {
+            emailInUse();
+            progressDialog.dismiss();
+            return;
+        }
+
+        User u = new User();
+        u.setName(name);
+        u.setEmail(email);
         u.setPassword(password);
+
+        databaseHelper.addUser(u);
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -98,13 +105,16 @@ public class SignupActivity extends AppCompatActivity {
         _signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
 
-        //helper.addUser(u);
-
-        //finish();
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Signup failed", Toast.LENGTH_LONG).show();
+
+        _signupButton.setEnabled(true);
+    }
+
+    public void emailInUse() {
+        Toast.makeText(getBaseContext(), "Signup failed, email already in use", Toast.LENGTH_LONG).show();
 
         _signupButton.setEnabled(true);
     }
@@ -113,9 +123,7 @@ public class SignupActivity extends AppCompatActivity {
         boolean valid = true;
 
         String name = _nameText.getText().toString();
-        String address = _addressText.getText().toString();
         String email = _emailText.getText().toString();
-        String mobile = _mobileText.getText().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
@@ -126,26 +134,11 @@ public class SignupActivity extends AppCompatActivity {
             _nameText.setError(null);
         }
 
-        if (address.isEmpty()) {
-            _addressText.setError("Enter Valid Address");
-            valid = false;
-        } else {
-            _addressText.setError(null);
-        }
-
-
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");
             valid = false;
         } else {
             _emailText.setError(null);
-        }
-
-        if (mobile.isEmpty() || mobile.length()!=10) {
-            _mobileText.setError("Enter Valid Mobile Number");
-            valid = false;
-        } else {
-            _mobileText.setError(null);
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
