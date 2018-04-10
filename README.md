@@ -10,3 +10,5 @@ Our GUI now contains a completed login page and signup page. We have three separ
 We have fully completed the login/signup pages, having connected the GUI with the database. We now have input validation, user authentication and successful storage of user information for logging in.
 
 We have also cleaned up the GUI following Sprint 1, removing some unnecessary fields and moving things around to reduce clutter.
+
+For Sprint 3, we intend on creating a search page, developing and implementing search functionality and miscellaneous tasks as indicated by our task board.
