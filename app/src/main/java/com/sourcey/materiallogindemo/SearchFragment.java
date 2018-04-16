@@ -13,7 +13,7 @@ import android.widget.TextView;
 /**
  * Fragment class for each nav menu item
  */
-public class MenuFragment extends Fragment {
+public class SearchFragment extends Fragment {
     private static final String ARG_TEXT = "arg_text";
     private static final String ARG_COLOR = "arg_color";
 
@@ -21,10 +21,10 @@ public class MenuFragment extends Fragment {
     private int mColor;
 
     private View mContent;
-    private TextView mTextView;
+
 
     public static Fragment newInstance(String text, int color) {
-        Fragment frag = new MenuFragment();
+        Fragment frag = new SearchFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEXT, text);
         args.putInt(ARG_COLOR, color);
@@ -37,7 +37,7 @@ public class MenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false);
+        return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
     @Override
@@ -56,10 +56,10 @@ public class MenuFragment extends Fragment {
 
         // initialize views
         mContent = view.findViewById(R.id.fragment_content);
-        mTextView = (TextView) view.findViewById(R.id.text);
 
-        // set text and background color
-        mTextView.setText(mText);
+
+        // set background color
+
         mContent.setBackgroundColor(mColor);
     }
 

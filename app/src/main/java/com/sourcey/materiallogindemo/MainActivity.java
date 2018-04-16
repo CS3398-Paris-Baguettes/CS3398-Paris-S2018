@@ -97,25 +97,15 @@ public class MainActivity extends AppCompatActivity {
         // init corresponding fragment
         switch (item.getItemId()) {
             case R.id.menu_home:
-                frag = MenuFragment.newInstance(getString(R.string.text_home),
+                frag = HomeFragment.newInstance(getString(R.string.text_home),
                         getColorFromRes(R.color.color_home));
                 break;
-            /* from BOTTOM_NAVIGATION_BAR, notifications not needed
-            case R.id.menu_notifications:
-                frag = MenuFragment.newInstance(getString(R.string.text_notifications),
-                        getColorFromRes(R.color.color_notifications));
-                break;
-            */
             case R.id.menu_search:
-                frag = MenuFragment.newInstance(getString(R.string.text_search),
+                frag = SearchFragment.newInstance(getString(R.string.text_search),
                         getColorFromRes(R.color.color_search));
                 break;
-            case R.id.menu_hot:
-                frag = MenuFragment.newInstance(getString(R.string.text_hot),
-                        getColorFromRes(R.color.color_hot));
-                break;
             case R.id.menu_user:
-                frag = MenuFragment.newInstance(getString(R.string.text_user),
+                frag = UserFragment.newInstance(getString(R.string.text_user),
                         getColorFromRes(R.color.color_user));
                 break;
         }
