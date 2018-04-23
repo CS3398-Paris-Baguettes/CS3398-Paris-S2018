@@ -1,13 +1,24 @@
 package com.sourcey.materiallogindemo;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.method.DigitsKeyListener;
+import android.text.method.KeyListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ToggleButton;
+
+import org.w3c.dom.Text;
+
 
 
 /**
@@ -16,18 +27,21 @@ import android.widget.TextView;
 public class UserFragment extends Fragment {
     private static final String ARG_TEXT = "arg_text";
     private static final String ARG_COLOR = "arg_color";
-
+    private static final String ARG_USER = "arg_user";
     private String mText;
     private int mColor;
 
     private View mContent;
+    private EditText et;
 
 
-    public static Fragment newInstance(String text, int color) {
+
+    public static Fragment newInstance(String text, int color, String name) {
         Fragment frag = new UserFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEXT, text);
         args.putInt(ARG_COLOR, color);
+        args.putString(ARG_USER, name);
         frag.setArguments(args);
         return frag;
     }
@@ -37,7 +51,11 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        View inf = inflater.inflate(R.layout.fragment_user, container, false);
+        et = (EditText) inf.findViewById(R.id.tv_name);
+        et.setEnabled(false);
+        et.setText(getArguments().getString(ARG_USER));
+        return inf;
     }
 
     @Override
@@ -58,7 +76,25 @@ public class UserFragment extends Fragment {
         mContent = view.findViewById(R.id.fragment_content);
 
 
+
+        ToggleButton toggle = (ToggleButton) view.findViewById(R.id.edit_button);
+        et.setTag((et.getKeyListener()));
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    et.setEnabled(true);
+                    et.setKeyListener((KeyListener) et.getTag());
+                    et.setText("");
+                } else {
+                    et.setEnabled(false);
+                    et.setKeyListener(null);
+                }
+            }
+        });
+
         // set background color
+
 
         mContent.setBackgroundColor(mColor);
     }
@@ -69,4 +105,5 @@ public class UserFragment extends Fragment {
         outState.putInt(ARG_COLOR, mColor);
         super.onSaveInstanceState(outState);
     }
+
 }

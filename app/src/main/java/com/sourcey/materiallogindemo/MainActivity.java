@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView mBottomNav;
     private int mSelectedItem;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             selectedItem = mBottomNav.getMenu().getItem(0);
         }
         selectFragment(selectedItem);
+
     }
 
     // From LOGIN/REGISTER
@@ -96,17 +101,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment frag = null;
         // init corresponding fragment
         switch (item.getItemId()) {
-            case R.id.menu_home:
-                frag = HomeFragment.newInstance(getString(R.string.text_home),
-                        getColorFromRes(R.color.color_home));
-                break;
             case R.id.menu_search:
                 frag = SearchFragment.newInstance(getString(R.string.text_search),
                         getColorFromRes(R.color.color_search));
                 break;
             case R.id.menu_user:
                 frag = UserFragment.newInstance(getString(R.string.text_user),
-                        getColorFromRes(R.color.color_user));
+                        getColorFromRes(R.color.color_user), LoginActivity.email);
                 break;
         }
 
