@@ -35,29 +35,19 @@ That being said, desired future features are
 Jarrod Trompler (Sprint 1, 2 and 3)
 -
 - DatabaseHelper
-
--FilmSearcher
-
--SearchFragment
-
--User
-
--Miscellaneous work on MainActivity/LoginActivity/SignupActivity
+- FilmSearcher
+- SearchFragment
+- User
+- Miscellaneous work on MainActivity/LoginActivity/SignupActivity
  
+ Roddie Frederik (Sprint 1, 2 and 3)
+ -
+- UserFragment
+- Extensive GUI work
+- Optimization / Cleanup
+- Miscellaneous work on MainActivity/LoginActivity/SignupActivity
  
-- Roddie Frederik (Sprint 1, 2 and 3)
-
--UserFragment
-
--Extensive GUI work
-
--Optimization / Cleanup
-
--Miscellaneous work on MainActivity/LoginActivity/SignupActivity
- 
- 
-- Alexander Muyshondt (Sprint 1)
-
--Miscellaneous work on MainActivity/LoginActivity/SignupActivity
-
--Created Wachit Logo
+Alexander Muyshondt (Sprint 1)
+-
+- Miscellaneous work on MainActivity/LoginActivity/SignupActivity
+- Created Wachit Logo
