@@ -33,11 +33,12 @@ That being said, desired future features are
 
 # Project Contributors
 - Jarrod Trompler (Sprint 1, 2 and 3)
+
 -DatabaseHelper
---FilmSearcher
---SearchFragment
---User
---Miscellaneous work on MainActivity/LoginActivity/SignupActivity
+-FilmSearcher
+-SearchFragment
+-User
+-Miscellaneous work on MainActivity/LoginActivity/SignupActivity
 
 - Roddie Frederik (Sprint 1, 2 and 3)
 --UserFragment
