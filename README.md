@@ -45,11 +45,17 @@ That being said, desired future features are
 -Miscellaneous work on MainActivity/LoginActivity/SignupActivity
 
 - Roddie Frederik (Sprint 1, 2 and 3)
---UserFragment
---Extensive GUI work
---Optimization / Cleanup
---Miscellaneous work on MainActivity/LoginActivity/SignupActivity
+
+-UserFragment
+
+-Extensive GUI work
+
+-Optimization / Cleanup
+
+-Miscellaneous work on MainActivity/LoginActivity/SignupActivity
 
 - Alexander Muyshondt (Sprint 1)
---Miscellaneous work on MainActivity/LoginActivity/SignupActivity
---Created Wachit Logo
+
+-Miscellaneous work on MainActivity/LoginActivity/SignupActivity
+
+-Created Wachit Logo
