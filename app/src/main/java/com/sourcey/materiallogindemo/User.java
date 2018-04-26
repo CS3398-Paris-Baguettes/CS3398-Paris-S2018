@@ -1,6 +1,8 @@
 package com.sourcey.materiallogindemo;
 
-public class User
+import java.io.Serializable;
+
+public class User implements Serializable
 {
 
     private int id;
@@ -12,6 +14,7 @@ public class User
     {
 
     }
+
 
     public User(String name, String email, String password)
     {

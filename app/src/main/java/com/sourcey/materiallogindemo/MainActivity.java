@@ -14,13 +14,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
     private static final String SELECTED_ITEM = "arg_selected_item";
-
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    User u = new User();
+    //User u = databaseHelper.getUser(SignupActivity.username);
     private BottomNavigationView mBottomNav;
     private int mSelectedItem;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             selectedItem = mBottomNav.getMenu().getItem(0);
         }
         selectFragment(selectedItem);
+
     }
 
     // From LOGIN/REGISTER
@@ -96,27 +103,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment frag = null;
         // init corresponding fragment
         switch (item.getItemId()) {
-            case R.id.menu_home:
-                frag = MenuFragment.newInstance(getString(R.string.text_home),
-                        getColorFromRes(R.color.color_home));
-                break;
-            /* from BOTTOM_NAVIGATION_BAR, notifications not needed
-            case R.id.menu_notifications:
-                frag = MenuFragment.newInstance(getString(R.string.text_notifications),
-                        getColorFromRes(R.color.color_notifications));
-                break;
-            */
             case R.id.menu_search:
-                frag = MenuFragment.newInstance(getString(R.string.text_search),
+                frag = SearchFragment.newInstance(getString(R.string.text_search),
                         getColorFromRes(R.color.color_search));
                 break;
-            case R.id.menu_hot:
-                frag = MenuFragment.newInstance(getString(R.string.text_hot),
-                        getColorFromRes(R.color.color_hot));
-                break;
             case R.id.menu_user:
-                frag = MenuFragment.newInstance(getString(R.string.text_user),
-                        getColorFromRes(R.color.color_user));
+                frag = UserFragment.newInstance(getString(R.string.text_user),
+                        getColorFromRes(R.color.color_user), LoginActivity.mEmail);
                 break;
         }
 
