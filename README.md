@@ -32,9 +32,9 @@ That being said, desired future features are
 - A more developed user experience where users can interact and receive recommendations
 
 # Project Contributors
-- Jarrod Trompler (Sprint 1, 2 and 3)
-
--- DatabaseHelper
+Jarrod Trompler (Sprint 1, 2 and 3)
+-
+- DatabaseHelper
 
 -FilmSearcher
 
