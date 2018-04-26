@@ -34,7 +34,7 @@ That being said, desired future features are
 # Project Contributors
 - Jarrod Trompler (Sprint 1, 2 and 3)
 
-- DatabaseHelper
+-- DatabaseHelper
 
 -FilmSearcher
 
