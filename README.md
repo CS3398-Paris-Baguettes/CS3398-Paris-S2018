@@ -43,8 +43,8 @@ That being said, desired future features are
 -User
 
 -Miscellaneous work on MainActivity/LoginActivity/SignupActivity
-
-
+ 
+ 
 - Roddie Frederik (Sprint 1, 2 and 3)
 
 -UserFragment
@@ -54,8 +54,8 @@ That being said, desired future features are
 -Optimization / Cleanup
 
 -Miscellaneous work on MainActivity/LoginActivity/SignupActivity
-
-
+ 
+ 
 - Alexander Muyshondt (Sprint 1)
 
 -Miscellaneous work on MainActivity/LoginActivity/SignupActivity
